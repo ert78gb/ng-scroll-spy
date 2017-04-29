@@ -12,6 +12,7 @@ export class ScrollSpyDirective implements AfterContentInit {
   private currentActiveLink;
   private directNavigation = false;
 
+  // TODO: Change the any type to Document when fix https://github.com/angular/angular/issues/15640
   constructor(@Inject(DOCUMENT) private document: any,
               private el: ElementRef,
               private renderer: Renderer2) {
