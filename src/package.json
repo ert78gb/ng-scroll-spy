@@ -1,6 +1,6 @@
 {
   "name": "ng-scroll-spy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular 4 directive that tracking the scrolling of the document and highligh the navigation link",
   "keywords": [
     "Angular",

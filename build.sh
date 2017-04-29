@@ -21,3 +21,6 @@ rsync -a --exclude=*.js build/ dist
 
 # Copy the release package.json file
 cp src/package.json dist/package.json
+
+# Copy the readme.md file
+cp readme.md dist/readme.md
