@@ -1,5 +1,5 @@
 import {AfterContentInit, Directive, ElementRef, HostListener, Inject, Renderer2} from '@angular/core';
-import {DOCUMENT} from '@angular/platform-browser';
+import {DOCUMENT} from '@angular/common';
 
 import {extractElementPosition} from 'ng-html-util';
 
