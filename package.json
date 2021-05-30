@@ -28,7 +28,7 @@
     "@angular/core": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
     "ng-html-util": "^2.0.2",
-    "ng-packagr": "^9.1.0",
+    "ng-packagr": "^10.1.1",
     "rollup": "^2.3.3",
     "rxjs": "^6.5.5",
     "standard-version": "^8.0.1",
