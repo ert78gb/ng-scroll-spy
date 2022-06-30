@@ -12,8 +12,7 @@ export class ScrollSpyDirective implements AfterContentInit {
   private currentActiveLink;
   private directNavigation = false;
 
-  // TODO: Change the any type to Document when fix https://github.com/angular/angular/issues/15640
-  constructor(@Inject(DOCUMENT) private document: any,
+  constructor(@Inject(DOCUMENT) private document: Document,
               private el: ElementRef,
               private renderer: Renderer2) {
   }
@@ -22,7 +21,7 @@ export class ScrollSpyDirective implements AfterContentInit {
     this.collectIds();
   }
 
-  private collectIds() {
+  private collectIds(): void {
     this.elements = [];
     let elements = this.el.nativeElement.querySelectorAll('a');
 
@@ -48,7 +47,7 @@ export class ScrollSpyDirective implements AfterContentInit {
     }
   }
 
-  private _onLinkClicked(event: Event) {
+  private _onLinkClicked(event: Event):  void {
     event.preventDefault();
 
     let target = event.currentTarget;
@@ -65,7 +64,7 @@ export class ScrollSpyDirective implements AfterContentInit {
     this.directNavigation = false;
   }
 
-  private _getPeerElement(id) {
+  private _getPeerElement(id): HTMLElement | null {
 
     let destination = this.document.getElementById(id);
 
@@ -75,7 +74,7 @@ export class ScrollSpyDirective implements AfterContentInit {
     return destination;
   }
 
-  private static getId(elem) {
+  private static getId(elem): string {
     let href = elem.getAttribute('href');
 
     if (!href)
@@ -85,7 +84,7 @@ export class ScrollSpyDirective implements AfterContentInit {
   }
 
   @HostListener("window:scroll", ['$event'])
-  onWindowScroll(event: Event) {
+  onWindowScroll(event: Event): void {
     if (this.directNavigation)
       return;
 
@@ -99,14 +98,14 @@ export class ScrollSpyDirective implements AfterContentInit {
     }
   }
 
-  private _cleanCurrentLink() {
+  private _cleanCurrentLink(): void {
     if (!this.currentActiveLink)
       return;
 
     this.renderer.removeClass(this.currentActiveLink, 'active');
   }
 
-  private _setCurrentLink(elem) {
+  private _setCurrentLink(elem): void {
     this.currentActiveLink = elem;
     this.renderer.addClass(this.currentActiveLink, 'active');
   }
